@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.universa.advent1.TrebuchetTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-02T19:54:27" hostname="TANJASX1" time="0.207">
+  <properties/>
+  <testcase name="parseInput1()" classname="de.universa.advent1.TrebuchetTest" time="0.207"/>
+  <system-out><![CDATA[55386
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
