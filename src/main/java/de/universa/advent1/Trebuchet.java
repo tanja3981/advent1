@@ -1,5 +1,6 @@
 package de.universa.advent1;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
@@ -12,7 +13,8 @@ public class Trebuchet {
     public int parse(String[] lines) {
         List<Integer> results = new ArrayList<>();
         for (String line : lines) {
-            results.add(parseLine(line));
+            String line2 = prepareLine(line);
+            results.add(parseLine(line2));
         }
 
         return results.stream().mapToInt(i -> i.intValue()).sum();
@@ -37,20 +39,23 @@ public class Trebuchet {
         return first * 10 + last;
     }
 
-    public int parseLine2(String line) {
+    public String prepareLine(String line) {
+        char[] charArray = line.toCharArray();
+
 //first digit oder zahl ermitteln
-        for (int i = 0; i < line.length(); i++) {
-            char c = line.charAt(i);
-            if (Character.isDigit(c)) {
+        for (int i = 0; i < charArray.length; i++) {
 
+            int e = isEnum(line.substring(i));
+            if (e != -1) {
+                StringBuilder builder = new StringBuilder(line);
+                char c=(char)(e+'0');
+                builder.setCharAt(i, c);
+                return prepareLine(builder.toString());
             }
-            int e =isEnum(line.substring(i));
-
-
         }
         //last digit oder zahl ermitteln
 
-return -1;
+        return line;
     }
 
     public int isEnum(String s) {
